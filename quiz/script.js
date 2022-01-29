@@ -3,9 +3,8 @@ let actualQuestion = 0
 let points = 0
 
 let progressJump = 100/questionsCount
-document.querySelector('.progress--bar').style.width = `${progressJump}%`
 function progress(){
-  document.querySelector('.progress--bar').style.width = `${progressJump*(actualQuestion+1)}%`
+  document.querySelector('.progress--bar').style.width = `${Math.floor(progressJump*(actualQuestion))}%`
 }
 
 function createQuiz(){
@@ -40,6 +39,7 @@ function createQuiz(){
 }
 
 function createScore(){
+  document.querySelector('.progress--bar').style.width = '100%'
   document.querySelector('.questionArea').style.display = 'none'
   document.querySelector('.scoreArea').style.display = 'block'
   let percentage = (points/questionsCount)*100
